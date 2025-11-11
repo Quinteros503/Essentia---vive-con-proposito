@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --gold: #c9a227;
+  --black: #0e0e0e;
+  --white: #f9f9f9;
+  --gray: #a3a3a3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+header {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 15px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+  backdrop-filter: blur(6px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.logo-text span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  text-align: center;
+  padding: 0 20px;
+  padding-top: 90px; /* espacio por header fijo */
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.btn {
+  background-color: var(--gold);
+  color: var(--black);
+  padding: 12px 26px;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 100px 60px;
+  text-align: center;
+  background-color: var(--black);
+}
+
+.section.dark {
+  background-color: #111;
+}
+
+.section h2 {
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.section p {
+  color: var(--gray);
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ===== CAROUSEL ===== */
+.carousel {
+  overflow: hidden;
+  position: relative;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.6s ease;
+  padding-bottom: 10px;
+}
+
+/* Cada tarjeta (card) */
+.card {
+  position: relative;
+  min-width: 320px;
+  height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #222;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* Imagen dentro de cada tarjeta */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%);
+  transition: transform 0.45s ease;
+}
+
+.card:hover img {
+  transform: scale(1.04);
+}
+
+/* Texto sobrepuesto */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  color: var(--white);
+}
+
+.overlay h3 {
+  color: var(--gold);
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.overlay p {
+  font-size: 0.95rem;
+  color: #e6e6e6;
+}
+
+/* Botones del carrusel */
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.carousel-buttons button {
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.carousel-buttons button:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 900px) {
+  .card { min-width: 280px; height: 220px; }
+  .logo-img { width: 40px; height: 40px; }
+  .logo-text { font-size: 1.3rem; }
+  .section { padding: 80px 30px; }
+}
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .card { min-width: 240px; height: 200px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 0.95rem; }
+  header { padding: 12px 18px; }
+}
